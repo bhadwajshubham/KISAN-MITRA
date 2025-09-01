@@ -1,0 +1,27 @@
+# --- Secrets & Environment Variables ---
+# CRITICAL: This line keeps your API Keys and passwords safe.
+.env
+
+
+# --- Dependencies ---
+# This folder is regenerated with 'npm install'. It should not be committed.
+/node_modules
+
+
+# --- Logs ---
+# Log files created during runtime.
+logs
+*.log
+npm-debug.log*
+
+
+# --- IDE & Editor Settings ---
+# Your code editor's personal settings.
+.vscode/
+.idea/
+
+
+# --- Operating System Files ---
+# System files created by macOS and Windows.
+.DS_Store
+Thumbs.db

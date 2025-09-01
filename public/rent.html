@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Rental Hub - Kisan Mitra</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo"><span class="logo-icon">🌾</span> Kisan Mitra</a>
+                <ul class="nav-menu">
+                    <li><a href="diagnose.html" class="nav-link">Diagnose</a></li>
+                    <li><a href="recommend.html" class="nav-link">Recommend</a></li>
+                    <li><a href="rent.html" class="nav-link active">Rent Equipment</a></li>
+                    <li><a href="sell.html" class="nav-link">Sell Produce</a></li>
+                    <li><a href="community.html" class="nav-link">Community</a></li>
+                </ul>
+                <a href="index.html#download" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="rent-page">
+        <div class="container">
+            <div class="section-header" style="padding-top: 5rem;" data-aos="fade-up">
+                <div class="section-subtitle">PEER-TO-PEER SHARING</div>
+                <h1 class="heading-1 section-title">Equipment Rental Hub</h1>
+                <p class="section-description">List your unused farm equipment or find what you need from fellow farmers in your area.</p>
+                <p class="user-id-display">Your User ID: <span id="userIdDisplay">Loading...</span></p>
+            </div>
+
+            <div class="rent-actions" data-aos="fade-up" data-aos-delay="100">
+                <button id="list-item-btn" class="btn btn-primary btn-lg"><i class="fas fa-plus-circle"></i> List an Item for Rent</button>
+            </div>
+
+            <div id="listings-section" data-aos="fade-up" data-aos-delay="200">
+                <div id="loading-listings" class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>Loading available items...</p>
+                </div>
+                <div id="no-listings-found" class="placeholder-content hidden">
+                    <i class="fas fa-tractor placeholder-icon"></i>
+                    <h3>No items listed yet.</h3>
+                    <p>Be the first to list your equipment!</p>
+                </div>
+                <div id="listings-grid" class="listing-grid">
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="listItemModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h2 class="heading-2">List Your Item</h2>
+            <form id="listItemForm" class="modal-form">
+                <div class="form-group"><label for="itemName">Item Name</label><input type="text" id="itemName" name="itemName" class="form-input" placeholder="e.g., Tractor, Sprayer" required><p class="form-error"></p></div>
+                <div class="form-group"><label for="description">Description</label><textarea id="description" name="description" rows="3" class="form-input" placeholder="Condition, features, etc." required></textarea><p class="form-error"></p></div>
+                <div class="form-row">
+                    <div class="form-group"><label for="pricePerDay">Price Per Day (₹)</label><input type="number" id="pricePerDay" name="pricePerDay" class="form-input" placeholder="e.g., 1500" required><p class="form-error"></p></div>
+                    <div class="form-group"><label for="location">Location</label><input type="text" id="location" name="location" class="form-input" placeholder="e.g., Pune, Maharashtra" required><p class="form-error"></p></div>
+                </div>
+                <div class="form-group"><label for="itemImage">Item Image</label><input type="file" id="itemImage" name="itemImage" class="form-input" accept="image/*" required><p class="form-error"></p></div>
+                <img id="imagePreview" class="image-preview hidden" src="#" alt="Image Preview"/>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Submit Listing</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="rentItemModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h2 class="heading-2" id="rentModalItemName">Rent Item</h2>
+            <form id="rentItemForm" class="modal-form">
+                <input type="hidden" id="rentModalListingId"><input type="hidden" id="rentModalPricePerDay">
+                <div class="form-group"><label for="renterName">Your Name</label><input type="text" id="renterName" name="renterName" class="form-input" required><p class="form-error"></p></div>
+                <div class="form-row">
+                    <div class="form-group"><label for="rentalStartDate">Start Date</label><input type="date" id="rentalStartDate" name="rentalStartDate" class="form-input" required><p class="form-error"></p></div>
+                    <div class="form-group"><label for="rentalEndDate">End Date</label><input type="date" id="rentalEndDate" name="rentalEndDate" class="form-input" required><p class="form-error"></p></div>
+                </div>
+                <div class="total-price-box">Total Price: <span id="calculatedTotalPrice">₹0</span></div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Send Rent Request</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="toast-container"></div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/rent.js"></script>
+</body>
+</html>

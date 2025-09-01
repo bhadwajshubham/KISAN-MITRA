@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendations - Kisan Mitra</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🌾</span> Kisan Mitra
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="diagnose.html" class="nav-link">Diagnose</a></li>
+                    <li><a href="recommend.html" class="nav-link active">Recommend</a></li>
+                    <li><a href="rent.html" class="nav-link">Rent Equipment</a></li>
+                    <li><a href="sell.html" class="nav-link">Sell Produce</a></li>
+                    <li><a href="community.html" class="nav-link">Community</a></li>
+                </ul>
+                <a href="index.html#download" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="recommend-page">
+        <div class="container">
+            <div class="section-header" style="padding-top: 5rem;" data-aos="fade-up">
+                <div class="section-subtitle">AI-POWERED INSIGHTS</div>
+                <h1 class="heading-1 section-title">Smart Crop Recommendations</h1>
+                <p class="section-description">Fill in your farm's details, and our AI will suggest the most profitable and suitable crops for you.</p>
+            </div>
+
+            <div class="recommend-main-grid">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="heading-2" style="margin-bottom: 2rem;">Tell Us About Your Farm</h2>
+                    <form id="recommend-form" class="recommend-form-container">
+                        <div class="form-group">
+                            <div class="label-container">
+                                <label for="state">Location *</label>
+                                <button type="button" id="current-location-btn" class="location-btn">📍 Use Current Location</button>
+                            </div>
+                            <div class="form-row">
+                                <select id="state" class="form-input" required><option value="">Select State</option></select>
+                                <select id="district" class="form-input" required><option value="">Select District</option></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Soil Type *</label>
+                            <div class="radio-grid">
+                                <label class="radio-label"><input type="radio" name="soil" value="Clay" required> <span>Clay</span></label>
+                                <label class="radio-label"><input type="radio" name="soil" value="Sandy"> <span>Sandy</span></label>
+                                <label class="radio-label"><input type="radio" name="soil" value="Loamy"> <span>Loamy</span></label>
+                                <label class="radio-label"><input type="radio" name="soil" value="Black"> <span>Black</span></label>
+                                <label class="radio-label"><input type="radio" name="soil" value="Red"> <span>Red</span></label>
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="form-group">
+                                <label for="farm-size">Farm Size (in Acres)</label>
+                                <input type="number" id="farm-size" class="form-input" placeholder="e.g., 5">
+                            </div>
+                            <div class="form-group">
+                                <label for="water">Water Availability</label>
+                                <select id="water" class="form-input">
+                                    <option value="Good (Canal/Borewell)">Good (Canal/Borewell)</option>
+                                    <option value="Average (Monsoon Dependent)">Average (Monsoon Dependent)</option>
+                                    <option value="Low (Rainfed)">Low (Rainfed)</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="planting-month">Planting Month *</label>
+                            <select id="planting-month" class="form-input" required><option value="">Select Month</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Investment Budget (per Acre)</label>
+                            <select id="budget" class="form-input">
+                                <option value="Low (Under ₹15,000)">Low (Under ₹15,000)</option>
+                                <option value="Medium (₹15,000 - ₹30,000)">Medium (₹15,000 - ₹30,000)</option>
+                                <option value="High (Above ₹30,000)">High (Above ₹30,000)</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="get-recommend-btn" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-leaf"></i> Get Recommendations
+                        </button>
+                    </form>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="heading-2" style="margin-bottom: 2rem;">Recommended Crops</h2>
+                    <div class="results-area" id="recommend-results-area">
+                        <div class="placeholder-content">
+                            <i class="fas fa-seedling placeholder-icon"></i>
+                            <p>Your personalized crop recommendations will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/recommend.js"></script>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Mitra - AI-Powered Agriculture Revolution</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <nav class="navbar" id="navbar">
+    <div class="container">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌾</span>
+                Kisan Mitra
+            </a>
+            <ul class="nav-menu">
+                <li><a href="diagnose.html" class="nav-link">Diagnose</a></li>
+                <li><a href="recommend.html" class="nav-link">Recommend</a></li>
+                <li><a href="rent.html" class="nav-link">Rent Equipment</a></li>
+                <li><a href="sell.html" class="nav-link">Sell Produce</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+            <a href="index.html#download" class="nav-cta">Get Started</a>
+        </div>
+    </div>
+</nav>
+
+    <section class="hero">
+        <div class="container-wide">
+            <div class="hero-container">
+                <div class="hero-content" data-aos="fade-right">
+                    <div class="hero-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>AI-Powered Agriculture Revolution</span>
+                    </div>
+                    <h1 class="heading-display hero-title">
+                        Empowering Farmers with <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Smart Technology</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transform your farming with AI-powered crop diagnosis, direct market access, 
+                        and a thriving community. One platform, endless possibilities for growth.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#" class="btn btn-primary btn-lg" onclick="showDemo('download')">
+                            <i class="fas fa-download"></i>
+                            Download Free App
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-lg" onclick="showDemo('demo')">
+                            <i class="fas fa-play"></i>
+                            Watch Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual" data-aos="fade-left">
+                    <div class="hero-image">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="app-header">
+                                    <h3 style="color: var(--primary); font-weight: 700; font-size: 1.1rem;">Kisan Mitra</h3>
+                                    <div style="display: flex; gap: 0.5rem;">
+                                        <div style="width: 8px; height: 8px; background: var(--success); border-radius: 50%;"></div>
+                                        <div style="width: 8px; height: 8px; background: var(--warning); border-radius: 50%;"></div>
+                                        <div style="width: 8px; height: 8px; background: var(--danger); border-radius: 50%;"></div>
+                                    </div>
+                                </div>
+                                <div class="app-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem; font-weight: 600;">AI Crop Scanner</h4>
+                                        <p style="font-size: 0.8rem; color: var(--gray-500);">Instant disease detection</p>
+                                    </div>
+                                </div>
+                                <div class="app-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-store"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem; font-weight: 600;">Direct Marketplace</h4>
+                                        <p style="font-size: 0.8rem; color: var(--gray-500);">Sell without middlemen</p>
+                                    </div>
+                                </div>
+                                <div class="app-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem; font-weight: 600;">Expert Community</h4>
+                                        <p style="font-size: 0.8rem; color: var(--gray-500);">24/7 farmer support</p>
+                                    </div>
+                                </div>
+                                <div class="app-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem; font-weight: 600;">Equipment Sharing</h4>
+                                        <p style="font-size: 0.8rem; color: var(--gray-500);">Rent & share tools</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-header" data-aos="fade-up">
+                <h2 class="heading-1">The Challenges Farmers Face Daily</h2>
+                <p class="text-lg" style="opacity: 0.9;">Understanding the real problems to build meaningful solutions</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="problem-icon">💸</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Middlemen Exploitation</h3>
+                    <p style="opacity: 0.8;">Farmers receive only 20-30% of final market price due to multiple intermediaries taking unfair cuts</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="problem-icon">🦠</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Crop Disease Detection</h3>
+                    <p style="opacity: 0.8;">Late identification of pests and diseases leads to 20-40% crop loss, devastating farmer income</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="problem-icon">📚</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Limited Information Access</h3>
+                    <p style="opacity: 0.8;">No access to modern farming techniques, real-time market prices, or expert agricultural advice</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="problem-icon">🚜</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Expensive Equipment</h3>
+                    <p style="opacity: 0.8;">High-cost farming machinery remains unused for most of the year, increasing operational costs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle">Our Solutions</div>
+                <h2 class="heading-1 section-title">Smart Technology for Modern Farming</h2>
+                <p class="section-description">
+                    Comprehensive AI-powered tools designed to address every farming challenge with innovative, practical solutions
+                </p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="heading-3">AI Pest & Disease Detection</h3>
+                    <p class="text-base" style="color: var(--gray-600); margin-top: 0.5rem;">
+                        Snap a photo and get instant diagnosis with 95% accuracy. Early detection saves crops and maximizes yield potential.
+                    </p>
+                </div>
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="heading-3">Smart Crop Recommendations</h3>
+                    <p class="text-base" style="color: var(--gray-600); margin-top: 0.5rem;">
+                        AI analyzes soil, weather, and market data to recommend the most profitable crops for your specific conditions.
+                    </p>
+                </div>
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="solution-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="heading-3">P2P Equipment Sharing</h3>
+                    <p class="text-base" style="color: var(--gray-600); margin-top: 0.5rem;">
+                        Share expensive equipment with nearby farmers. Reduce costs by up to 60% while increasing operational efficiency.
+                    </p>
+                </div>
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="solution-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="heading-3">Direct Market Access</h3>
+                    <p class="text-base" style="color: var(--gray-600); margin-top: 0.5rem;">
+                        Connect directly with buyers and retailers. Skip middlemen completely and increase your income by 40%.
+                    </p>
+                </div>
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="solution-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="heading-3">Organic Farming Support</h3>
+                    <p class="text-base" style="color: var(--gray-600); margin-top: 0.5rem;">
+                        Complete guidance for organic certification process and access to premium organic market channels.
+                    </p>
+                </div>
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="solution-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="heading-3">Expert Community Network</h3>
+                    <p class="text-base" style="color: var(--gray-600); margin-top: 0.5rem;">
+                        Connect with agricultural experts and experienced farmers. Get answers, share knowledge, solve problems together.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle">Simple Process</div>
+                <h2 class="heading-1 section-title">From Problem to Solution in Minutes</h2>
+                <p class="section-description">
+                    Our streamlined process makes advanced farming technology accessible to every farmer
+                </p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📱</div>
+                    <h3 class="heading-3">Capture & Upload</h3>
+                    <p class="text-base" style="color: var(--gray-600);">
+                        Take a clear photo of your crop, leaf, or affected area using your smartphone camera
+                    </p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">🤖</div>
+                    <h3 class="heading-3">AI Analysis</h3>
+                    <p class="text-base" style="color: var(--gray-600);">
+                        Our advanced AI instantly analyzes the image and identifies issues with 95% accuracy
+                    </p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">💡</div>
+                    <h3 class="heading-3">Get Recommendations</h3>
+                    <p class="text-base" style="color: var(--gray-600);">
+                        Receive personalized treatment plans, product recommendations, and expert advice
+                    </p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">🤝</div>
+                    <h3 class="heading-3">Connect & Grow</h3>
+                    <p class="text-base" style="color: var(--gray-600);">
+                        Access marketplace, rent equipment, and connect with the farming community
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle" style="color: rgba(255,255,255,0.8);">Complete Platform</div>
+                <h2 class="heading-1 section-title">Everything You Need in One App</h2>
+                <p class="section-description" style="color: rgba(255,255,255,0.8);">
+                    Comprehensive tools designed specifically for modern Indian farmers
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="feature-card-icon">🔍</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Pest Scanner</h3>
+                    <p style="opacity: 0.8;">Instant pest identification & treatment</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="150">
+                    <span class="feature-card-icon">🌱</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Crop Advisor</h3>
+                    <p style="opacity: 0.8;">AI-powered crop suggestions</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="feature-card-icon">🚜</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Equipment Rental</h3>
+                    <p style="opacity: 0.8;">Share & rent farming tools</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="250">
+                    <span class="feature-card-icon">💰</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Direct Selling</h3>
+                    <p style="opacity: 0.8;">Skip middlemen, earn more</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <span class="feature-card-icon">💬</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Expert Forum</h3>
+                    <p style="opacity: 0.8;">24/7 community support</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="350">
+                    <span class="feature-card-icon">🍃</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Organic Certification</h3>
+                    <p style="opacity: 0.8;">Complete organic guidance</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <span class="feature-card-icon">🗣️</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Multi-Language</h3>
+                    <p style="opacity: 0.8;">Hindi, English & regional languages</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="450">
+                    <span class="feature-card-icon">🌤️</span>
+                    <h3 class="heading-3" style="margin-bottom: 0.5rem;">Weather Insights</h3>
+                    <p style="opacity: 0.8;">Hyperlocal weather forecasts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle" style="color: rgba(255,255,255,0.8);">Proven Results</div>
+                <h2 class="heading-1 section-title">Real Impact on Farmer Lives</h2>
+                <p class="section-description" style="color: rgba(255,255,255,0.8);">
+                    Measurable outcomes from farmers across India who trust Kisan Mitra
+                </p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="impact-number" data-target="40">0</span>
+                    <span class="impact-label">% Income Increase</span>
+                </div>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="impact-number" data-target="95">0</span>
+                    <span class="impact-label">% Accuracy Rate</span>
+                </div>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="impact-number" data-target="60">0</span>
+                    <span class="impact-label">% Faster Diagnosis</span>
+                </div>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="impact-number" data-target="30">0</span>
+                    <span class="impact-label">% Water Savings</span>
+                </div>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="500">
+                    <span class="impact-number" data-target="50">0</span>
+                    <span class="impact-label">K+ Happy Farmers</span>
+                </div>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="600">
+                    <span class="impact-number" data-target="15">0</span>
+                    <span class="impact-label">States Covered</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section" id="community">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle">Community Driven</div>
+                <h2 class="heading-1 section-title">Farmers Helping Farmers</h2>
+                <p class="section-description">
+                    Join India's largest farming community where knowledge flows freely and problems get solved together
+                </p>
+            </div>
+            <div class="community-preview" data-aos="fade-up" data-aos-delay="200">
+                <div class="chat-message">
+                    <div class="chat-avatar">RK</div>
+                    <div class="chat-bubble">
+                        <strong style="color: var(--primary);">Rajesh Kumar (Punjab)</strong><br>
+                        <span style="color: var(--gray-700);">मेरी गेहूं की फसल में पीले धब्बे दिख रहे हैं। क्या करूं? 😟</span>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="chat-avatar">Dr</div>
+                    <div class="chat-bubble">
+                        <strong style="color: var(--primary);">Dr. Sharma (Expert)</strong><br>
+                        <span style="color: var(--gray-700);">यह Yellow Rust हो सकता है। तुरंत Propiconazole spray करें। फोटो भेजिए confirm करने के लिए। 👨‍⚕️</span>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="chat-avatar">AS</div>
+                    <div class="chat-bubble">
+                        <strong style="color: var(--primary);">Amit Singh (Haryana)</strong><br>
+                        <span style="color: var(--gray-700);">मैंने भी यही problem face की थी। 2 spray में ठीक हो गई। Don't worry! 💪</span>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="chat-avatar">RK</div>
+                    <div class="chat-bubble">
+                        <strong style="color: var(--primary);">Rajesh Kumar</strong><br>
+                        <span style="color: var(--gray-700);">धन्यवाद भाई! App से photo scan करके confirm कर लेता हूं। 🙏</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle">Success Stories</div>
+                <h2 class="heading-1 section-title">Transforming Lives Across India</h2>
+                <p class="section-description">
+                    Real stories from farmers who have revolutionized their farming with Kisan Mitra
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-quote">
+                        "Kisan Mitra की AI ने मेरी tomato crop को बचाया। Early blight detect करके treatment suggest की। 
+                        80% crop बच गई और ₹2 लाख का नुकसान बचा! यह app हर farmer के लिए जरूरी है।"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Vegetable Farmer, Maharashtra</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-quote">
+                        "Direct selling feature से middleman को skip करके 40% ज्यादा price मिली। 
+                        अब मैं directly buyers से connect होता हूं। मेरी income double हो गई है!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Wheat Farmer, Punjab</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p class="testimonial-quote">
+                        "Equipment sharing से expensive harvester rent पर मिल गया। ₹50,000 बचे और 
+                        community में नए friends भी बने। Technology ने farming को easy बना दिया!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Amit Singh</h4>
+                            <p>Rice Farmer, Haryana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roadmap-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-subtitle" style="color: rgba(255,255,255,0.8);">Future Innovation</div>
+                <h2 class="heading-1 section-title">What's Coming Next</h2>
+                <p class="section-description" style="color: rgba(255,255,255,0.8);">
+                    Exciting new features in development to further revolutionize Indian agriculture
+                </p>
+            </div>
+            <div class="roadmap-grid">
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="roadmap-icon">🛰️</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Satellite Soil Analysis</h3>
+                    <p style="opacity: 0.8;">Advanced satellite imagery for precise soil health monitoring and nutrient mapping</p>
+                </div>
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="roadmap-icon">🚁</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Drone Integration</h3>
+                    <p style="opacity: 0.8;">Automated crop monitoring and precision spraying services with drone technology</p>
+                </div>
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="roadmap-icon">💳</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">Smart Credit System</h3>
+                    <p style="opacity: 0.8;">AI-based credit scoring for instant farming loans and financial assistance</p>
+                </div>
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="roadmap-icon">📡</span>
+                    <h3 class="heading-3" style="margin-bottom: 1rem;">IoT Farm Monitoring</h3>
+                    <p style="opacity: 0.8;">Smart sensors for automated irrigation, temperature, and humidity control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="download">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 class="heading-1" style="margin-bottom: 1rem;">Ready to Transform Your Farming?</h2>
+                <p class="text-lg" style="opacity: 0.9; margin-bottom: 2rem;">
+                    Join 50,000+ farmers who are already increasing their income and improving their crops with AI technology. 
+                    Download now and get your first crop diagnosis absolutely FREE!
+                </p>
+                <div class="download-section">
+                    <div class="qr-placeholder" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="download-buttons" data-aos="fade-left" data-aos-delay="300">
+                        <a href="#" class="download-btn" onclick="showDemo('playstore')">
+                            <i class="fab fa-google-play" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <div style="font-size: 0.8rem; opacity: 0.8;">Download on</div>
+                                <div style="font-size: 1.1rem; font-weight: 700;">Google Play Store</div>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn" onclick="showDemo('whatsapp')">
+                            <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <div style="font-size: 0.8rem; opacity: 0.8;">Get support on</div>
+                                <div style="font-size: 1.1rem; font-weight: 700;">WhatsApp</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🌾 Kisan Mitra</h4>
+                    <p style="margin-bottom: 1rem;">Empowering farmers with cutting-edge AI technology for sustainable and profitable agriculture across India.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary-light); font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--primary-light); font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--primary-light); font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--primary-light); font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Crop Diagnosis</a></li>
+                        <li><a href="#">Smart Recommendations</a></li>
+                        <li><a href="#">Equipment Sharing</a></li>
+                        <li><a href="#">Direct Marketplace</a></li>
+                        <li><a href="#">Expert Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Expert Consultation</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+911800123456">📞 1800-123-456 (Toll Free)</a></li>
+                        <li><a href="mailto:support@kisanmitra.com">✉️ support@kisanmitra.com</a></li>
+                        <li><a href="#">📍 New Delhi, India</a></li>
+                        <li><a href="#">🕒 24/7 Support Available</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kisan Mitra. All rights reserved. | Transforming Indian Agriculture with AI Technology</p>
+            </div>
+        </div>
+    </footer>
+
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

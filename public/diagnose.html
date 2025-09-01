@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Crop Diagnosis - Kisan Mitra</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo"><span class="logo-icon">🌾</span> Kisan Mitra</a>
+                <ul class="nav-menu">
+                    <li><a href="diagnose.html" class="nav-link active">Diagnose</a></li>
+                    <li><a href="recommend.html" class="nav-link">Recommend</a></li>
+                    <li><a href="rent.html" class="nav-link">Rent Equipment</a></li>
+                    <li><a href="sell.html" class="nav-link">Sell Produce</a></li>
+                    <li><a href="community.html" class="nav-link">Community</a></li>
+                </ul>
+                <a href="index.html#download" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="diagnose-page">
+        <div class="container">
+            <div class="section-header" style="padding-top: 5rem;" data-aos="fade-up">
+                <div class="section-subtitle">AI-POWERED CROP DOCTOR</div>
+                <h1 class="heading-1 section-title">Instant Crop Disease Diagnosis</h1>
+                <p class="section-description">Upload a photo of your crop, and our AI will identify the disease and provide a complete solution.</p>
+            </div>
+
+            <div class="diagnose-tool-grid">
+                <div class="card" data-aos="fade-right" data-aos-delay="100">
+                    <h2 class="heading-2">1. Upload or Capture Image</h2>
+                    <div class="upload-container" id="upload-container">
+                        <div id="image-preview-container" class="hidden">
+                            <img id="image-preview" src="#" alt="Your Uploaded Image" />
+                            <button id="remove-image-btn" title="Remove Image">&times;</button>
+                        </div>
+                        <div id="upload-placeholder">
+                            <i class="fas fa-camera placeholder-icon"></i>
+                            <p>Upload a photo of your crop</p>
+                        </div>
+                        <input type="file" id="file-input" hidden accept="image/*">
+                    </div>
+                    
+                    <div class="upload-options">
+                        <button class="btn btn-secondary" id="upload-btn-new"><i class="fas fa-upload"></i> Upload Image</button>
+                        <button class="btn btn-secondary" id="camera-btn-new"><i class="fas fa-video"></i> Use Live Camera</button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="language">Result Language</label>
+                        <select id="language" class="form-input">
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Punjabi">Punjabi</option>
+                            <option value="Marathi">Marathi</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="analyze-btn" disabled style="width:100%; margin-top: 1rem;">
+                        <i class="fas fa-brain"></i> Analyze with AI
+                    </button>
+                </div>
+
+                <div class="card" data-aos="fade-left" data-aos-delay="200">
+                    <h2 class="heading-2">2. Get Your Diagnosis</h2>
+                    <div class="results-container" id="results-container">
+                        </div>
+                </div>
+            </div>
+
+            <div id="expert-connect-container" class="expert-connect-container hidden" data-aos="fade-up"></div>
+            
+            <section class="how-it-works" id="how-it-works">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-header">
+                        <div class="section-subtitle">Simple & Effective</div>
+                        <h2 class="heading-1 section-title">How It Works</h2>
+                    </div>
+                    <div class="steps-container">
+                        <div class="step-card"><div class="step-number">1</div><div class="step-icon">📸</div><h3 class="heading-3">Capture Image</h3><p>Take a clear photo of the affected crop leaf or stem.</p></div>
+                        <div class="step-card"><div class="step-number">2</div><div class="step-icon">🤖</div><h3 class="heading-3">AI Analysis</h3><p>Our powerful AI compares your image with millions of samples.</p></div>
+                        <div class="step-card"><div class="step-number">3</div><div class="step-icon">💡</div><h3 class="heading-3">Get Solution</h3><p>Receive a detailed report with treatment and prevention steps.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="diagnose-history-section">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-header">
+                        <h2 class="heading-1 section-title">Your Diagnosis History</h2>
+                    </div>
+                    <div class="card">
+                        <div id="history-container">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="camera-modal" class="modal-overlay hidden">
+        <div class="modal-content camera-modal-content">
+            <button id="close-camera-btn" class="modal-close-btn">&times;</button>
+            <video id="camera-feed" autoplay playsinline></video>
+            <canvas id="camera-canvas" class="hidden"></canvas>
+            <button id="capture-btn" class="capture-btn"><i class="fas fa-camera"></i> Capture</button>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/diagnose.js"></script>
+</body>
+</html>

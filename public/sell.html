@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Produce - Kisan Mitra</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo"><span class="logo-icon">🌾</span> Kisan Mitra</a>
+                <ul class="nav-menu">
+                    <li><a href="diagnose.html" class="nav-link">Diagnose</a></li>
+                    <li><a href="recommend.html" class="nav-link">Recommend</a></li>
+                    <li><a href="rent.html" class="nav-link">Rent Equipment</a></li>
+                    <li><a href="sell.html" class="nav-link active">Sell Produce</a></li>
+                    <li><a href="community.html" class="nav-link">Community</a></li>
+                </ul>
+                <a href="index.html#download" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="sell-page">
+        <div class="container">
+            <div class="section-header" style="padding-top: 5rem;" data-aos="fade-up">
+                <div class="section-subtitle">DIRECT TO MARKET</div>
+                <h1 class="heading-1 section-title">Sell Your Produce</h1>
+                <p class="section-description">List your crop on our marketplace and connect directly with buyers to get the best price, without middlemen.</p>
+            </div>
+
+            <div class="sell-main-grid">
+                <div class="card" data-aos="fade-right" data-aos-delay="100">
+                    <h2 class="heading-2" style="margin-bottom: 2rem;">Create a New Listing</h2>
+                    <form id="sell-crop-form" class="modal-form">
+                        <div class="form-row">
+                            <div class="form-group"><label for="crop-type">Crop Type *</label><input type="text" id="crop-type" class="form-input" placeholder="e.g., Wheat, Tomato" required></div>
+                            <div class="form-group"><label for="variety">Variety (Optional)</label><input type="text" id="variety" class="form-input" placeholder="e.g., Basmati, Sona"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="quantity">Quantity (in Quintals) *</label><input type="number" id="quantity" class="form-input" placeholder="e.g., 50" required></div>
+                            <div class="form-group"><label for="expected-price">Expected Price (₹ per Quintal) *</label><input type="number" id="expected-price" class="form-input" placeholder="e.g., 2150" required></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Crop Photos (up to 4)</label>
+                            <div id="upload-drop-zone" class="upload-drop-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop files here, or click to browse</p>
+                            </div>
+                            <input type="file" id="crop-photos" multiple hidden accept="image/*">
+                            <div id="upload-preview-container" class="upload-preview-container"></div>
+                        </div>
+                        <div class="form-group"><label for="additional-info">Additional Information</label><textarea id="additional-info" rows="3" class="form-input" placeholder="e.g., Organic certified, harvest date, etc."></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-store"></i> List My Crop</button>
+                    </form>
+                </div>
+                
+                <aside class="sell-sidebar" data-aos="fade-left" data-aos-delay="200">
+                    <div class="card">
+                        <h3 class="heading-3" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Live Market Prices (Mandi)</h3>
+                        <div class="market-price-list">
+                            <div class="market-price-item" data-crop="wheat">
+                                <div><h4>Wheat (per quintal)</h4><p>Punjab Average</p></div>
+                                <div class="price"><strong>₹2,150</strong><span class="price-change">--</span></div>
+                            </div>
+                            <div class="market-price-item" data-crop="rice">
+                                <div><h4>Rice (per quintal)</h4><p>Haryana Average</p></div>
+                                <div class="price"><strong>₹2,890</strong><span class="price-change">--</span></div>
+                            </div>
+                            <div class="market-price-item" data-crop="tomato">
+                                <div><h4>Tomato (per quintal)</h4><p>Maharashtra Average</p></div>
+                                <div class="price"><strong>₹1,800</strong><span class="price-change">--</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="heading-3" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Tips for Better Sales</h3>
+                        <ul class="tips-list">
+                            <li>Upload clear, high-quality photos from multiple angles.</li>
+                            <li>Set a competitive price by checking the live market rates.</li>
+                            <li>Mention if your crop is organic or has any certifications.</li>
+                            <li>Write a clear description including harvest date and quality.</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast-container"></div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/sell.js"></script>
+</body>
+</html>
