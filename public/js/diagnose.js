@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Secure API Call to Your Backend ---
     async function callBackendAPI(base64Image) {
         const language = document.getElementById('language').value;
-        const response = await fetch('/diagnose', {
+        const response = await fetch('/.netlify/functions/api/diagnose', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ image: base64Image, language: language })
