@@ -7,16 +7,13 @@ require('dotenv').config();
 const app = express();
 const router = express.Router();
 
-// Middleware
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-// API endpoint using the router
 router.post('/diagnose', async (req, res) => {
     if (!GEMINI_API_KEY) {
-        console.error("ERROR - API Key is missing on the server!");
         return res.status(500).json({ error: 'API key is not configured on the server.' });
     }
 
@@ -47,7 +44,6 @@ router.post('/diagnose', async (req, res) => {
 
         if (!apiResponse.ok) {
             const errorBody = await apiResponse.text();
-            console.error("ERROR from Gemini API:", errorBody);
             throw new Error(`Gemini API Error: ${errorBody}`);
         }
 
@@ -56,11 +52,9 @@ router.post('/diagnose', async (req, res) => {
         res.json({ success: true, data: responseText });
 
     } catch (error) {
-        console.error("FATAL ERROR in catch block:", error.message);
         res.status(500).json({ success: false, error: "An internal server error occurred." });
     }
 });
 
-// Netlify wrapper
 app.use('/.netlify/functions/api', router);
 module.exports.handler = serverless(app);
