@@ -1,11 +1,9 @@
-// Libraries required for Netlify and your app
 const express = require('express');
 const serverless = require('serverless-http');
 const fetch = require('node-fetch');
 const cors = require('cors');
 require('dotenv').config();
 
-// Initialize Express app and a router for Netlify
 const app = express();
 const router = express.Router();
 
@@ -15,12 +13,10 @@ app.use(express.json({ limit: '10mb' }));
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-// API endpoint with debugging logs included
+// API endpoint using the router
 router.post('/diagnose', async (req, res) => {
-    console.log("LOG 1: /diagnose endpoint hit.");
-
     if (!GEMINI_API_KEY) {
-        console.error("LOG 2: ERROR - API Key is missing on the server!");
+        console.error("ERROR - API Key is missing on the server!");
         return res.status(500).json({ error: 'API key is not configured on the server.' });
     }
 
@@ -43,36 +39,28 @@ router.post('/diagnose', async (req, res) => {
     };
 
     try {
-        console.log("LOG 3: Calling the Gemini API...");
         const apiResponse = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
 
-        console.log("LOG 4: Received response from Gemini API. Status:", apiResponse.status);
-
         if (!apiResponse.ok) {
-            const errorBody = await apiResponse.text(); // Use .text() to see any kind of error
-            console.error("LOG 5: ERROR from Gemini API:", errorBody);
-            // This throws the error to the catch block below
+            const errorBody = await apiResponse.text();
+            console.error("ERROR from Gemini API:", errorBody);
             throw new Error(`Gemini API Error: ${errorBody}`);
         }
 
         const data = await apiResponse.json();
-        console.log("LOG 6: Successfully parsed Gemini JSON response.");
-        
         const responseText = data.candidates[0].content.parts[0].text;
-        console.log("LOG 7: Sending final data to frontend.");
         res.json({ success: true, data: responseText });
 
     } catch (error) {
-        console.error("LOG 8: FATAL ERROR in catch block:", error.message);
-        // Send a proper JSON error response to the frontend
+        console.error("FATAL ERROR in catch block:", error.message);
         res.status(500).json({ success: false, error: "An internal server error occurred." });
     }
 });
 
-// This is the wrapper code that makes it work on Netlify
+// Netlify wrapper
 app.use('/.netlify/functions/api', router);
 module.exports.handler = serverless(app);
