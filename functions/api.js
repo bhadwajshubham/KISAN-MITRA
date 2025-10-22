@@ -3,9 +3,9 @@ const serverless = require('serverless-http');
 const cors = require('cors');
 
 // ▼▼▼ THIS IS THE FIX ▼▼▼
-// The path is now './api/api_router.js' to point to the
-// file inside the 'functions/api/' folder.
-const apiRoutes = require('./api/api_router.js'); 
+// The path is now './api_router.js' because both files
+// are in the same folder, and Netlify is looking in this folder.
+const apiRoutes = require('./api_router.js'); 
 
 const app = express();
 
