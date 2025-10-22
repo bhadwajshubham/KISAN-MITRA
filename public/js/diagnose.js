@@ -145,18 +145,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (!response.ok) {
-            const errorResult = await response.json();
-            throw new Error(errorResult.error || "Request to server failed.");
+            // Try to parse error as JSON, but fall back to text if that fails
+            let errorMessage = "Request to server failed with status " + response.status;
+            try {
+                const errorResult = await response.json();
+                errorMessage = errorResult.error || JSON.stringify(errorResult);
+            } catch (e) {
+                // The error response was not JSON, use the raw text
+                errorMessage = await response.text();
+            }
+            throw new Error(errorMessage);
         }
+        
         const result = await response.json();
         
+        // The backend now sends { success: true, data: "..." }
+        if (!result.success || !result.data) {
+            throw new Error(result.error || "The server returned a successful status but an invalid response body.");
+        }
+        
         try {
+            // The actual AI response is in the 'data' field.
             const cleanedJsonString = result.data.replace(/```json|```/g, '').trim();
             const parsedResult = JSON.parse(cleanedJsonString);
             parsedResult.image = base64Image;
             return parsedResult;
         } catch (e) {
-            throw new Error("Server returned an invalid format.");
+            console.error("Failed to parse JSON from server response data:", result.data);
+            throw new Error("The analysis result from the server was in an unexpected format.");
         }
     }
 
