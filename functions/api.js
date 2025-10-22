@@ -3,14 +3,13 @@ const serverless = require('serverless-http');
 const cors = require('cors');
 
 // ▼▼▼ THIS IS THE FIX ▼▼▼
-// The path is now '../' to go from 'functions/' up to the root,
-// and then down into 'routes/'.
-const apiRoutes = require('../routes/api_router.js'); 
+// The path is now './api/api_router.js' to point to the
+// file inside the 'functions/api/' folder.
+const apiRoutes = require('./api/api_router.js'); 
 
 const app = express();
 
 // --- Middleware ---
-// Apply the JSON body parser FIRST
 app.use(express.json({ limit: '50mb' })); 
 app.use(cors());
 
