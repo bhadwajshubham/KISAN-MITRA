@@ -1,4 +1,4 @@
 [build]
-  functions = "functions/api"
+  functions = "functions"
   command = "npm install"
   publish = "public"
