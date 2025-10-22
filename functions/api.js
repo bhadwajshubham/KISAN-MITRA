@@ -62,5 +62,5 @@ router.post('/diagnose', async (req, res) => {
 });
 
 // --- Netlify Wrapper ---
-app.use('/.netlify/functions/api', router);
+app.use('/', router); // FIX: Use the root path, as Netlify handles the function path.
 module.exports.handler = serverless(app);
