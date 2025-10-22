@@ -136,45 +136,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Secure API Call to Your Backend ---
+    // ▼▼▼ THIS IS THE ONLY UPDATED FUNCTION ▼▼▼
     async function callBackendAPI(base64Image) {
         const language = document.getElementById('language').value;
-        const response = await fetch('/.netlify/functions/api/diagnose', {
+
+        // This code automatically chooses the correct API endpoint
+        let apiEndpoint = '/.netlify/functions/api/diagnose'; // Default to Netlify's path
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            apiEndpoint = 'http://localhost:3000/diagnose'; // Use the local server path
+        }
+    
+        const response = await fetch(apiEndpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ image: base64Image, language: language })
         });
-
+    
         if (!response.ok) {
-            // Try to parse error as JSON, but fall back to text if that fails
-            let errorMessage = "Request to server failed with status " + response.status;
+            // This robust error handling fixes the "body stream already read" error
+            const errorBodyText = await response.text(); // Read the body ONCE as text.
+            let errorMessage = errorBodyText; // Default to the raw text
             try {
-                const errorResult = await response.json();
-                errorMessage = errorResult.error || JSON.stringify(errorResult);
+                // Try to parse the text as JSON
+                const errorResult = JSON.parse(errorBodyText);
+                // If it is JSON, use the specific error message
+                errorMessage = errorResult.error || errorBodyText; 
             } catch (e) {
-                // The error response was not JSON, use the raw text
-                errorMessage = await response.text();
+                // It wasn't JSON. 'errorMessage' is already set to the raw text, so do nothing.
             }
             throw new Error(errorMessage);
         }
         
+        // If response is OK, read the body as JSON.
         const result = await response.json();
         
-        // The backend now sends { success: true, data: "..." }
+        // This is your existing logic from here down
         if (!result.success || !result.data) {
-            throw new Error(result.error || "The server returned a successful status but an invalid response body.");
+             throw new Error(result.error || "The server returned a successful status but an invalid response body.");
         }
         
         try {
-            // The actual AI response is in the 'data' field.
-            const cleanedJsonString = result.data.replace(/```json|```/g, '').trim();
-            const parsedResult = JSON.parse(cleanedJsonString);
-            parsedResult.image = base64Image;
-            return parsedResult;
+             const cleanedJsonString = result.data.replace(/```json|```/g, '').trim();
+             const parsedResult = JSON.parse(cleanedJsonString);
+             parsedResult.image = base64Image;
+             return parsedResult;
         } catch (e) {
-            console.error("Failed to parse JSON from server response data:", result.data);
-            throw new Error("The analysis result from the server was in an unexpected format.");
+             console.error("Failed to parse JSON from server response data:", result.data);
+             throw new Error("The analysis result from the server was in an unexpected format.");
         }
     }
+    // ▲▲▲ THIS IS THE ONLY UPDATED FUNCTION ▲▲▲
 
     function renderResults(result) {
         let resultsHTML = '';
