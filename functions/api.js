@@ -28,7 +28,7 @@ router.post('/diagnose', async (req, res) => {
     const prompt = `Analyze this crop image...`; // Your full prompt
 
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
         const imagePart = {
             inlineData: { data: image.split(',')[1], mimeType: "image/jpeg" },
         };
