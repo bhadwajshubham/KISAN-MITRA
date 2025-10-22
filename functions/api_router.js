@@ -10,6 +10,7 @@ router.post('/diagnose', async (req, res) => {
         return res.status(500).json({ error: 'API key is not configured on the server.' });
     }
 
+    // req.body will now work because of the fix in api.js
     const { image, language } = req.body;
     if (!image) {
         return res.status(400).json({ error: 'Image data is required.' });
@@ -17,13 +18,13 @@ router.post('/diagnose', async (req, res) => {
 
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
     
-    const prompt = `Analyze this crop image. Respond ONLY with a single, minified JSON object with these keys: "isHealthy" (boolean), "issueName" (string), "issueType" (string, "Disease" or "Pest"), "confidence" (number between 0.0 and 1.0), "description" (string, max ONE sentence), "treatment" (array of short, actionable strings, like a recipe), "prevention" (array of short, actionable strings), "diyTip" (string, a single, practical DIY tip). All string values must be in ${language}.`;
+    const prompt = `Analyze this crop image...`; // Your prompt
 
     const payload = {
         contents: [{
             parts: [
                 { text: prompt },
-                // ▼▼▼ THIS IS THE FIX ▼▼▼
+                // ▼▼▼ THIS IS THE SECOND FIX ▼▼▼
                 { inlineData: { mime_type: "image/jpeg", data: image.split(',')[1] } }
             ]
         }]
