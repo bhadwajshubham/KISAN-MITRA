@@ -136,10 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Secure API Call to Your Backend ---
-    // ▼▼▼ THIS IS THE ONLY UPDATED FUNCTION ▼▼▼
     async function callBackendAPI(base64Image) {
         const language = document.getElementById('language').value;
-
+    
         // This code automatically chooses the correct API endpoint
         let apiEndpoint = '/.netlify/functions/api/diagnose'; // Default to Netlify's path
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
@@ -152,29 +151,28 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({ image: base64Image, language: language })
         });
     
+        // This robust error handling fixes the "body stream already read" error
         if (!response.ok) {
-            // This robust error handling fixes the "body stream already read" error
             const errorBodyText = await response.text(); // Read the body ONCE as text.
             let errorMessage = errorBodyText; // Default to the raw text
             try {
                 // Try to parse the text as JSON
                 const errorResult = JSON.parse(errorBodyText);
                 // If it is JSON, use the specific error message
-                errorMessage = errorResult.error || errorBodyText; 
+                errorMessage = errorResult.error || errorBodyText;
             } catch (e) {
                 // It wasn't JSON. 'errorMessage' is already set to the raw text, so do nothing.
             }
             throw new Error(errorMessage);
         }
-        
+    
         // If response is OK, read the body as JSON.
         const result = await response.json();
-        
-        // This is your existing logic from here down
+    
         if (!result.success || !result.data) {
              throw new Error(result.error || "The server returned a successful status but an invalid response body.");
         }
-        
+    
         try {
              const cleanedJsonString = result.data.replace(/```json|```/g, '').trim();
              const parsedResult = JSON.parse(cleanedJsonString);
@@ -185,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
              throw new Error("The analysis result from the server was in an unexpected format.");
         }
     }
-    // ▲▲▲ THIS IS THE ONLY UPDATED FUNCTION ▲▲▲
 
     function renderResults(result) {
         let resultsHTML = '';
